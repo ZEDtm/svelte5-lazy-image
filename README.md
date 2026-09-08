@@ -2,7 +2,7 @@
 
 
 > [!NOTE]
-> Updated for Svelte 5; includes TypeScript support. Original: https://github.com/alexstaroselsky/svelte-lazy-image.git.
+> Updated for Svelte 5; includes TypeScript support. Original: https://github.com/alexstaroselsky/svelte-lazy-image.git
 
 Svelte 5 component to lazy load images using [Intersection Observer](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
 
