@@ -15,6 +15,25 @@ git clone https://github.com/ZEDtm/svelte5-lazy-image.git
 
 ### Svelte 5:
 
+New in Svelte 5: use `bindable` to implement features like a blur effect before loading:
+
+```html
+<script>
+  import { LazyImage } from 'svelte5-lazy-image';
+
+  let imgLoaded = $state(false);
+</script>
+
+<LazyImage
+  bind:loaded={imgLoaded}
+  src="https://via.placeholder.com/250?text=src"
+  placeholder="https://via.placeholder.com/250?text=placeholder"
+  alt="Lorem Ipsum"
+  options={{ threshold: 0.5 }}
+  class={cn("absolute inset-0 h-full w-full object-bottom dark:brightness-[0.4] dark:grayscale", !imgLoaded && "blur-sm" )}
+/>
+```
+
 #### use:action
 
 Set `data-src` and/or `data-srcset` on an `img` element:
@@ -81,24 +100,5 @@ Specify IntersectionObserver [options](https://developer.mozilla.org/en-US/docs/
   placeholder="https://via.placeholder.com/250?text=placeholder"
   alt="Lorem Ipsum"
   options={{ threshold: 0.5 }}
-/>
-```
-
-New in Svelte 5: use `bindable` to implement features like a blur effect before loading:
-
-```html
-<script>
-  import { LazyImage } from 'svelte5-lazy-image';
-
-  let imgLoaded = $state(false);
-</script>
-
-<LazyImage
-  bind:loaded={imgLoaded}
-  src="https://via.placeholder.com/250?text=src"
-  placeholder="https://via.placeholder.com/250?text=placeholder"
-  alt="Lorem Ipsum"
-  options={{ threshold: 0.5 }}
-  class={cn("absolute inset-0 h-full w-full object-bottom dark:brightness-[0.4] dark:grayscale", !imgLoaded && "blur-sm" )}
 />
 ```
